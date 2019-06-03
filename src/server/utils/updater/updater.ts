@@ -51,7 +51,7 @@ export function updater<T>(oldThings: T[], newThings: T[], updatedOptions: Updat
     var newThingKey = key(newThing);
     var oldThing = initialByKey[newThingKey];
     if (oldThing) {
-      if (!equals(newThing, oldThing)) {
+      if (!equals(newThing as any, oldThing)) {
         onUpdate(newThing, oldThing);
       }
       delete initialByKey[newThingKey];
